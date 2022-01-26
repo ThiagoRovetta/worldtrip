@@ -1,4 +1,5 @@
-import { Flex, Button, Stack } from '@chakra-ui/react'
+import { Flex } from '@chakra-ui/react'
+import { Banner } from '../components/Banner'
 import { Header } from '../components/Header'
 
 export default function Home() {
@@ -12,6 +13,7 @@ export default function Home() {
         bg="gray.100"
       >
         <Header isHome />  
+        <Banner />  
       </Flex>
     </>
   )

@@ -21,11 +21,11 @@ export const theme = extendTheme({
       900: "#47585B",
     },
   },
-  breakpoints
-  // fonts: {
-  //   heading: '',
-  //   body: ''
-  // },
+  breakpoints,
+  fonts: {
+    heading: 'Poppins',
+    body: 'Poppins'
+  },
   // styles: {
   //   global: {
   //     body: {
