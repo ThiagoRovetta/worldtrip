@@ -1,4 +1,11 @@
-import { Flex, Image, Text } from "@chakra-ui/react";
+import { Flex, Text } from "@chakra-ui/react";
+// import { Flex, Image, Text } from "@chakra-ui/react";
+import Image from 'next/image'
+import cocktail from '../../public/cocktail.png'
+import surf from '../../public/surf.png'
+import building from '../../public/building.png'
+import museum from '../../public/museum.png'
+import earth from '../../public/earth.png'
 
 export function TravelTypes() {
   return (
@@ -19,9 +26,10 @@ export function TravelTypes() {
       >
         <Image
           alt="cocktail" 
-          src='cocktail.png' 
-          w="85px" 
-          h="85px" 
+          src={cocktail} 
+          // src='cocktail.png' 
+          // w="85px" 
+          // h="85px" 
         />
         <Text
           color="gray.900" 
@@ -44,9 +52,10 @@ export function TravelTypes() {
       >
         <Image
           alt="surf" 
-          src='surf.png' 
-          w="85px" 
-          h="85px" 
+          src={surf} 
+          // src='surf.png' 
+          // w="85px" 
+          // h="85px" 
         />
         <Text
           color="gray.900" 
@@ -69,9 +78,10 @@ export function TravelTypes() {
       >
         <Image
           alt="building" 
-          src='building.png' 
-          w="85px" 
-          h="85px" 
+          src={building} 
+          // src='building.png' 
+          // w="85px" 
+          // h="85px" 
         />
         <Text
           color="gray.900" 
@@ -94,9 +104,10 @@ export function TravelTypes() {
       >
         <Image
           alt="museum" 
-          src='museum.png' 
-          w="85px" 
-          h="85px" 
+          src={museum} 
+          // src='museum.png' 
+          // w="85px" 
+          // h="85px" 
         />
         <Text
           color="gray.900" 
@@ -118,9 +129,10 @@ export function TravelTypes() {
       >
         <Image
           alt="earth" 
-          src='earth.png' 
-          w="85px" 
-          h="85px" 
+          src={earth}
+          // src='earth.png' 
+          // w="85px" 
+          // h="85px" 
         />
         <Text
           color="gray.900" 
