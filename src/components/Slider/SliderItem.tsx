@@ -13,35 +13,37 @@ export function SliderItem({ imageName, continent, about }: SliderItemProps) {
       <ChakraLink display="flex" align="center">
         <Flex
           as="div"
-          w="1240px"
-          h="450px"
+          w={{base: "375px", lg: "1240px", sm: "375px"}}
+          h={{base: "250px", lg: "450px", sm: "250px"}}
           justifyContent="center"
-          pt="180px"
+          pt={{base: "110px", lg: "180px", sm: "110px"}}
           bgImage={`url('/${imageName}')`}
           bgRepeat="no-repeat"
+          bgPosition="center"
+          bgSize="cover"
         >
           <Flex
-            w="324px"
-            h="116px"
+            w={{base: "187px", lg: "324px", sm: "187px"}}
+            h={{base: "59px", lg: "116px", sm: "59px"}}
             direction="column"
           >
             <Text
               color="gray.100"
               fontStyle="normal"
               fontWeight="700"
-              fontSize="48px"
-              lineHeight="72px"
+              fontSize={{base: "24px", lg: "48px", sm: "24px"}}
+              lineHeight={{base: "36px", lg: "72px", sm: "36px"}}
               align="center"
             >
               {continent}
             </Text>
             <Text
-              mt="16px"
+              mt={{base: "12px", lg: "16px", sm: "12px"}}
               color="gray.300"
               fontStyle="normal"
               fontWeight="700"
-              fontSize="24px"
-              lineHeight="36px"
+              fontSize={{base: "14px", lg: "24px", sm: "14px"}}
+              lineHeight={{base: "21px", lg: "36px", sm: "21px"}}
               align="center"
             >
               {about}

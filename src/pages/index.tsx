@@ -12,8 +12,8 @@ export default function Home() {
         <title>Home | WorldTrip</title>
       </Head>
       <Flex 
-        w={{lg: "1440px", sm: "375px"}} 
-        h="1469px" 
+        w={{base: "375px", lg: "1440px", sm: "375px"}} 
+        h={{base: "777px", lg: "1469px", sm: "777px"}}
         direction="column"
         align="center" 
         mx="auto"
@@ -22,29 +22,31 @@ export default function Home() {
         <Banner isHome />  
         <TravelTypes />  
         <Flex
-          mt="80px"
-          mb="52px"
-          w="90px"
+          mt={{base: "36px", lg: "80px", sm: "36px"}}
+          mb={{base: "24px", lg: "52px", sm: "24px"}}
+          w={{base: "60px", lg: "90px", sm: "60px"}}
           mx="auto"
         >
-          <Divider color="gray.900" borderBottom="2px" />
+          <Divider color="gray.900" borderBottom={{base: "1px", lg: "2px", sm: "1px"}} />
         </Flex>
         <Text
           fontStyle="normal"
           fontWeight="500"
-          fontSize="36px"
-          lineHeight="54px"
+          fontSize={{base: "20px", lg: "36px", sm: "20px"}}
+          lineHeight={{base: "30px", lg: "54px", sm: "30px"}}
+          w={{base: "297px", lg: "839px", sm: "297px"}}
+          h={{base: "54px", lg: "101px", sm: "54px"}}
           align="center"
           color="gray.900"
         >
           Vamos nessa? <br /> Então escolha seu continente
         </Text>
         <Flex
-          mt="52px"
-          mb="40px"
+          mt={{base: "20px", lg: "52px", sm: "20px"}}
+          mb={{base: "24px", lg: "40px", sm: "24px"}}
           mx="auto"
-          w="1240px"
-          h="450px"
+          w={{base: "375px", lg: "1240px", sm: "375px"}}
+          h={{base: "250px", lg: "450px", sm: "250px"}}
           justifyContent="center"
         >
           <Slider />

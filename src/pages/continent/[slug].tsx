@@ -1,6 +1,6 @@
 import { GetServerSideProps } from 'next'
 import Head from 'next/head'
-import { Flex, Divider, Text } from '@chakra-ui/react'
+import { Flex } from '@chakra-ui/react'
 import { Header } from '../../components/Header'
 import { Banner } from '../../components/Banner'
 import { Info } from '../../components/Info'
@@ -186,8 +186,8 @@ export default function Continent({ continent }: ContinentProps) {
         <title>{continent.name} | WorldTrip</title>
       </Head>
       <Flex 
-        w={{lg: "1440px", sm: "375px"}} 
-        h="1706px" 
+        w={{base: "375px", sm: "375px", lg: "1440px"}} 
+        h={{base: "2024px", sm: "2024px", lg: "1706px"}} 
         direction="column"
         align="center" 
         mx="auto"
