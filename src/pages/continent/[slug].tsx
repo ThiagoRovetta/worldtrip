@@ -1,6 +1,7 @@
 import { GetServerSideProps } from 'next'
 import Head from 'next/head'
 import { Flex } from '@chakra-ui/react'
+
 import { Header } from '../../components/Header'
 import { Banner } from '../../components/Banner'
 import { Info } from '../../components/Info'
@@ -24,7 +25,8 @@ interface ContinentProps {
   continent: {
     name: string;
     info: Info;
-    cities: City
+    cities: City[];
+    imagePath: string;
   }
 }
 
@@ -34,8 +36,20 @@ export const getServerSideProps: GetServerSideProps = async ({ req, params }) =>
   let bio = ''
   let countries, languages, cities100 = 0
   let cities = [] as City[]
+  let imagePath = ''
 
   if ( slug === 'favicon.png' ) {
+    return {
+      redirect: {
+        destination: '/',
+        permanent: false,
+      }
+    }
+  }
+
+  let isContinent = ['América do Norte', 'América do Sul', 'Ásia', 'África', 'Europa', 'Oceania'].find(continent => continent === slug)
+
+  if ( !isContinent ) {
     return {
       redirect: {
         destination: '/',
@@ -55,12 +69,37 @@ export const getServerSideProps: GetServerSideProps = async ({ req, params }) =>
       cities100 = 10
       cities = [
         {
-          name: '',
-          country: '',
-          cityImage: '',
-          countryFlagImage: ''
+            country: 'Canadá',
+            name: 'Toronto',
+            cityImage: '/images/continents/northAmerica/cities/toronto.jpeg',
+            countryFlagImage: '/images/continents/northAmerica/flags/canada.jpeg',
+        },
+        {
+            country: 'Estados Unidos',
+            name: 'Nova York',
+            cityImage: '/images/continents/northAmerica/cities/ny.jpeg',
+            countryFlagImage: '/images/continents/northAmerica/flags/eua.jpeg',
+        },
+        {
+            country: 'México',
+            name: 'Puerto Vallarta',
+            cityImage: '/images/continents/northAmerica/cities/pv.jpeg',
+            countryFlagImage: '/images/continents/northAmerica/flags/mexico.png',
+        },
+        {
+            country: 'Bahamas',
+            name: 'Nassau',
+            cityImage: '/images/continents/northAmerica/cities/nassau.jpeg',
+            countryFlagImage: '/images/continents/northAmerica/flags/bhamas.png',
+        },
+        {
+            country: 'Belize',
+            name: 'Caye Caulker',
+            cityImage: '/images/continents/northAmerica/cities/cc.jpeg',
+            countryFlagImage: '/images/continents/northAmerica/flags/belize.png',
         },
       ]
+      imagePath = '/images/continents/northAmerica/north-america2.jpeg'
       break;
     }
     case 'América do Sul': {
@@ -74,12 +113,37 @@ export const getServerSideProps: GetServerSideProps = async ({ req, params }) =>
       cities100 = 3
       cities = [
         {
-          name: '',
-          country: '',
-          cityImage: '',
-          countryFlagImage: ''
+            country: 'Brasil',
+            name: 'Rio de Janeiro',
+            cityImage: '/images/continents/southAmerica/cities/rj.jpeg',
+            countryFlagImage: '/images/continents/southAmerica/flags/br.jpeg',
+        },
+        {
+            country: 'Argentina',
+            name: 'Buenos Aires',
+            cityImage: '/images/continents/southAmerica/cities/ba.jpeg',
+            countryFlagImage: '/images/continents/southAmerica/flags/argentina.jpeg',
+        },
+        {
+            country: 'Peru',
+            name: 'Cusco ',
+            cityImage: '/images/continents/southAmerica/cities/cusco.jpeg',
+            countryFlagImage: '/images/continents/southAmerica/flags/peru.jpeg',
+        },
+        {
+            country: 'Chile',
+            name: 'Santiago',
+            cityImage: '/images/continents/southAmerica/cities/santiago.jpeg',
+            countryFlagImage: '/images/continents/southAmerica/flags/chile.png',
+        },
+        {
+            country: 'Colômbia',
+            name: 'Santa Marta',
+            cityImage: '/images/continents/southAmerica/cities/sm.jpeg',
+            countryFlagImage: '/images/continents/southAmerica/flags/colombia.png',
         },
       ]
+      imagePath = '/images/continents/southAmerica/south-america2.jpeg'
       break;
     }
     case 'Ásia': {
@@ -94,12 +158,37 @@ export const getServerSideProps: GetServerSideProps = async ({ req, params }) =>
       cities100 = 43
       cities = [
         {
-          name: '',
-          country: '',
-          cityImage: '',
-          countryFlagImage: ''
+            country: 'Indonésia',
+            name: 'Bali',
+            cityImage: '/images/continents/asia/cities/bali.jpeg',
+            countryFlagImage: '/images/continents/asia/flags/indonesia.png',
+        },
+        {
+            country: 'Tailândia',
+            name: 'Bangkok ',
+            cityImage: '/images/continents/asia/cities/bang.jpeg',
+            countryFlagImage: '/images/continents/asia/flags/tailandia.png',
+        },
+        {
+            country: 'Japão',
+            name: 'Tóquio',
+            cityImage: '/images/continents/asia/cities/toquio.jpeg',
+            countryFlagImage: '/images/continents/asia/flags/japao.png',
+        },
+        {
+            country: 'Turquia',
+            name: 'Istambul ',
+            cityImage: '/images/continents/asia/cities/istambul.jpeg',
+            countryFlagImage: '/images/continents/asia/flags/turquia.png',
+        },
+        {
+            country: 'Emirados Árabes',
+            name: 'Dubai',
+            cityImage: '/images/continents/asia/cities/dubai.jpeg',
+            countryFlagImage: '/images/continents/asia/flags/em.png',
         },
       ]
+      imagePath = '/images/continents/asia/asia2.jpeg'
       break;
     }
     case 'África': {
@@ -112,12 +201,37 @@ export const getServerSideProps: GetServerSideProps = async ({ req, params }) =>
       cities100 = 3
       cities = [
         {
-          name: '',
-          country: '',
-          cityImage: '',
-          countryFlagImage: ''
+            country: 'África do Sul',
+            name: 'Joanesburgo',
+            cityImage: '/images/continents/africa/cities/jb.jpeg',
+            countryFlagImage: '/images/continents/africa/flags/As.jpeg',
+        },
+        {
+            country: 'Uganda ',
+            name: 'Entebbe',
+            cityImage: '/images/continents/africa/cities/entebbe.jpeg',
+            countryFlagImage: '/images/continents/africa/flags/uganda.png',
+        },
+        {
+            country: 'Quênia',
+            name: 'Nairobi ',
+            cityImage: '/images/continents/africa/cities/nairobi.jpeg',
+            countryFlagImage: '/images/continents/africa/flags/quenia.png',
+        },
+        {
+            country: 'Moçambique',
+            name: 'Maputo',
+            cityImage: '/images/continents/africa/cities/maputo.jpeg',
+            countryFlagImage: '/images/continents/africa/flags/mocambique.png',
+        },
+        {
+            country: 'África do Sul',
+            name: 'Durban',
+            cityImage: '/images/continents/africa/cities/durban.jpeg',
+            countryFlagImage: '/images/continents/africa/flags/As.jpeg',
         },
       ]
+      imagePath = '/images/continents/africa/africa2.jpeg'
       break;
     }
     case 'Europa': {
@@ -131,12 +245,37 @@ export const getServerSideProps: GetServerSideProps = async ({ req, params }) =>
       cities100 = 27
       cities = [
         {
-          name: '',
-          country: '',
-          cityImage: '',
-          countryFlagImage: ''
+          name: 'Londres',
+          country: 'Reino Unido',
+          cityImage: '/images/continents/europe/cities/londres.png',
+          countryFlagImage: '/images/continents/europe/flags/united_kingdom.png'
+        },
+        {
+          name: 'Amsterdã',
+          country: 'Holanda',
+          cityImage: '/images/continents/europe/cities/amsterda.png',
+          countryFlagImage: '/images/continents/europe/flags/netherlands.png'
+        },
+        {
+          name: 'Paris',
+          country: 'França',
+          cityImage: '/images/continents/europe/cities/paris.png',
+          countryFlagImage: '/images/continents/europe/flags/france.png'
+        },
+        {
+          name: 'Roma',
+          country: 'Itália',
+          cityImage: '/images/continents/europe/cities/roma.png',
+          countryFlagImage: '/images/continents/europe/flags/italy.png'
+        },
+        {
+          name: 'Praga',
+          country: 'República Tcheca',
+          cityImage: '/images/continents/europe/cities/praga.png',
+          countryFlagImage: '/images/continents/europe/flags/czech_republic.png'
         },
       ]
+      imagePath = '/images/continents/europe/europe2.png'
       break;
     }
     case 'Oceania': {
@@ -149,12 +288,37 @@ export const getServerSideProps: GetServerSideProps = async ({ req, params }) =>
       cities100 = 3
       cities = [
         {
-          name: '',
-          country: '',
-          cityImage: '',
-          countryFlagImage: ''
+            country: 'Austrália',
+            name: 'Sydney',
+            cityImage: '/images/continents/oceania/cities/sydney.jpeg',
+            countryFlagImage: '/images/continents/oceania/flags/australia.png',
+        },
+        {
+            country: 'Fiji',
+            name: 'Yasawa',
+            cityImage: '/images/continents/oceania/cities/yasawa.jpeg',
+            countryFlagImage: '/images/continents/oceania/flags/fiji.png',
+        },
+        {
+            country: 'Nova Zelândia',
+            name: 'Waitomo',
+            cityImage: '/images/continents/oceania/cities/w.jpeg',
+            countryFlagImage: '/images/continents/oceania/flags/nz.png',
+        },
+        {
+            country: 'Polinésia Francesa',
+            name: 'Bora Bora',
+            cityImage: '/images/continents/oceania/cities/borabora.jpeg',
+            countryFlagImage: '/images/continents/oceania/flags/pf.png',
+        },
+        {
+            country: 'Samoa',
+            name: 'Apia',
+            cityImage: '/images/continents/oceania/cities/apia.jpeg',
+            countryFlagImage: '/images/continents/oceania/flags/samoa.png',
         },
       ]
+      imagePath = '/images/continents/oceania/oceania2.jpeg'
       break;
     }
   }
@@ -167,7 +331,8 @@ export const getServerSideProps: GetServerSideProps = async ({ req, params }) =>
       languages,
       cities100,
     },
-    cities
+    cities,
+    imagePath
   }
 
   return {
@@ -193,9 +358,12 @@ export default function Continent({ continent }: ContinentProps) {
         mx="auto"
       >
         <Header />  
-        <Banner continentName={continent.name} />
+        <Banner continent={{
+          name: continent.name,
+          imagePath: continent.imagePath
+        }} />
         <Info bio={bio} countries={countries} languages={languages} cities100={cities100}  />
-        <Cities />  
+        <Cities cities={continent.cities} />  
       </Flex>
     </>
   )

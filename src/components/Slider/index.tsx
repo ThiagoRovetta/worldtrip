@@ -13,44 +13,44 @@ export function Slider() {
       <Swiper navigation={true} pagination={true} className="mySwiper">
         <SwiperSlide>
           <SliderItem 
-            imageName={"europe.png"}
+            imagePath={"/images/continents/africa/africa.png"}
             continent="África"
-            about="O continente mais antigo."
+            about="O terceiro continente mais extenso."
           />
         </SwiperSlide>
         <SwiperSlide>
           <SliderItem 
-            imageName={"europe.png"}
+            imagePath={"/images/continents/northAmerica/north-america.png"}
             continent="América do Norte"
-            about="O continente mais antigo."
+            about="A maior fronteira em termos de extensão do planeta."
           />
         </SwiperSlide>
         <SwiperSlide>
           <SliderItem 
-            imageName={"europe.png"}
+            imagePath={"/images/continents/southAmerica/south-america.png"}
             continent="América do Sul"
-            about="O continente mais antigo."
+            about="O segundo maior continente do mundo."
           />
         </SwiperSlide>
         <SwiperSlide>
           <SliderItem 
-            imageName={"europe.png"}
+            imagePath={"/images/continents/asia/asia.png"}
             continent="Ásia"
-            about="O continente mais antigo."
+            about="O maior dos continentes."
           />
         </SwiperSlide>
         <SwiperSlide>
           <SliderItem 
-            imageName={"europe.png"}
+            imagePath={"/images/continents/europe/europe.png"}
             continent="Europa"
             about="O continente mais antigo."
           />
         </SwiperSlide>
         <SwiperSlide>
           <SliderItem 
-            imageName={"europe.png"}
+            imagePath={"/images/continents/oceania/oceania.png"}
             continent="Oceania"
-            about="O continente mais antigo."
+            about="O menor continente do mundo."
           />
         </SwiperSlide>
       </Swiper>

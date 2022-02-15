@@ -2,13 +2,24 @@ import { Flex, Wrap, WrapItem, Text } from '@chakra-ui/react'
 
 import { Card } from './Card'
 
-export function Cities() {
+type City = {
+  name: string;
+  country: string;
+  cityImage: string;
+  countryFlagImage: string;
+}
+
+interface CitiesProps {
+  cities: City[]
+}
+
+export function Cities({ cities }: CitiesProps) {
   return (
     <Flex
       w={{base: "343px", sm: "343px", lg: "1160px"}}
       h={{base: "1531px", sm: "1531px", lg: "700px"}}
-      direction="column"
       mx={{base: "16px", sm: "16px", lg: "0px"}}
+      direction="column"
     >
       <Flex justify="flex-start">
         <Text 
@@ -27,48 +38,17 @@ export function Cities() {
         spacing={{base: "20px", sm: "20px", lg: "45px"}}
         justify={{base: "center", sm: "center", lg: "initial"}}
       >
-        <WrapItem>
-          <Card />
-        </WrapItem>
-        <WrapItem>
-          <Card />
-        </WrapItem>
-        <WrapItem>
-          <Card />
-        </WrapItem>
-        <WrapItem>
-          <Card />
-        </WrapItem>
-        <WrapItem>
-          <Card />
-        </WrapItem>
-        <WrapItem>
-          <Card />
-        </WrapItem>
-        <WrapItem>
-          <Card />
-        </WrapItem>
+        {
+          cities?.map(city => {
+            return (
+              <WrapItem key={city.name}>
+                <Card name={city.name} country={city.country} cityImage={city.cityImage} countryFlagImage={city.countryFlagImage}/>
+              </WrapItem>
+            )
+          })
+        }
       </Wrap>
 
-      {/* <Flex
-        mt="40px"
-        justifyContent="space-between"
-      >
-        <Wrap mt="40px">
-          <WrapItem>
-            <Card />
-          </WrapItem>
-          <WrapItem>
-            <Card />
-          </WrapItem>
-          <WrapItem>
-            <Card />
-          </WrapItem>
-          <WrapItem>
-            <Card />
-          </WrapItem>
-        </Wrap>
-      </Flex> */}
     </Flex>
   )
 }

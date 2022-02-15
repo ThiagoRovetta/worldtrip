@@ -2,20 +2,25 @@ import { Flex, Center, Image, Text, useBreakpointValue } from '@chakra-ui/react'
 
 interface BannerProps {
   isHome?: boolean;
-  continentName?: string;
+  continent?: {
+    name: string;
+    imagePath: string;
+  }
 }
 
-export function Banner({ isHome, continentName }: BannerProps) {
+export function Banner({ isHome, continent }: BannerProps) {
   const isMobile = useBreakpointValue({ base: true, sm: true, lg: false})
 
   return (
     <Flex
       as="section"
-      w={{base: "375px", lg: "1440px", sm: "375px"}}
-      maxWidth={{base: 375, lg: 1440, sm: 375}}
-      h={{base: isHome ? "163px" : "150px", lg: isHome ? "368.21px" : "500px", sm: isHome ? "163px" : "150px"}}
-      bgImage={isHome ? "url('/Background.png')" : "url('/europe2.png')"}
+      maxWidth={{base: 375, sm: 375, lg: 1440}}
+      w={{base: "375px", sm: "375px", lg: "1440px"}}
+      h={{base: isHome ? "163px" : "150px", sm: isHome ? "163px" : "150px", lg: isHome ? "368.21px" : "500px"}}
+      bgImage={isHome ? "url('/images/Background.png')" : `url('${continent?.imagePath}')`}
       bgRepeat="no-repeat"
+      bgPosition="center"
+      bgSize={{base: isHome ? "" : "cover", sm: isHome ? "" : "cover", lg: isHome ? "" : "cover"}}
     >
       {
         isHome ? (
@@ -74,7 +79,7 @@ export function Banner({ isHome, continentName }: BannerProps) {
               >
                 <Image 
                   alt="logo" 
-                  src='Airplane.png' 
+                  src='/images/Airplane.png' 
                   w="417.15px" 
                   h="270.74px" 
                   transform="rotate(3deg)"
@@ -90,21 +95,39 @@ export function Banner({ isHome, continentName }: BannerProps) {
               h="100%"
               direction="column"
             >
-              <Flex
-                as="div"
-                mt="369px" 
-                ml="140px" 
-                h="72px"
-              >
-                <Text
-                  color="gray.100" 
-                  fontSize="48px" 
-                  fontWeight="600"
-                  lineHeight="72px"
-                >
-                  {continentName}
-                </Text>
-              </Flex>
+              {
+                isMobile ? (
+                  <Flex
+                    as="div"
+                    mx="auto"
+                    my="auto"
+                  >
+                    <Text
+                      color="gray.100" 
+                      fontWeight="600"
+                      fontSize={{base: "28px", sm: "28px", lg: "48px"}} 
+                      lineHeight={{base: "42px", sm: "42px", lg: "72px"}}
+                    >
+                      {continent?.name}
+                    </Text>
+                  </Flex>
+                ) : (
+                  <Flex
+                    as="div"
+                    mt="369px" 
+                    ml="140px" 
+                  >
+                    <Text
+                      color="gray.100" 
+                      fontWeight="600"
+                      fontSize={{base: "28px", sm: "28px", lg: "48px"}} 
+                      lineHeight={{base: "42px", sm: "42px", lg: "72px"}}
+                    >
+                      {continent?.name}
+                    </Text>
+                  </Flex>
+                )
+              }
             </Flex>
           </>
         )

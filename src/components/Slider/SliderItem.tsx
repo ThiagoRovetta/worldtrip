@@ -1,13 +1,14 @@
-import React from "react";import Link from "next/link";
+import React from "react";
+import Link from "next/link";
 import { Flex, Text, Link as ChakraLink } from '@chakra-ui/react'
 
 interface SliderItemProps {
-  imageName: string;
+  imagePath: string;
   continent: string;
   about: string;
 }
 
-export function SliderItem({ imageName, continent, about }: SliderItemProps) {
+export function SliderItem({ imagePath, continent, about }: SliderItemProps) {
   return (
     <Link href={`/continent/${continent}`} passHref>
       <ChakraLink display="flex" align="center">
@@ -17,14 +18,12 @@ export function SliderItem({ imageName, continent, about }: SliderItemProps) {
           h={{base: "250px", lg: "450px", sm: "250px"}}
           justifyContent="center"
           pt={{base: "110px", lg: "180px", sm: "110px"}}
-          bgImage={`url('/${imageName}')`}
+          bgImage={`url('${imagePath}')`}
           bgRepeat="no-repeat"
           bgPosition="center"
           bgSize="cover"
         >
           <Flex
-            w={{base: "187px", lg: "324px", sm: "187px"}}
-            h={{base: "59px", lg: "116px", sm: "59px"}}
             direction="column"
           >
             <Text

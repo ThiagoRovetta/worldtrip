@@ -1,22 +1,15 @@
 import Link from "next/link";
-import { Flex, Center, Img, Icon, Link as ChakraLink, useBreakpointValue } from '@chakra-ui/react'
-// import { Flex, Center, Image, Icon, Link as ChakraLink, useBreakpointValue } from '@chakra-ui/react'
+import { Flex, Center, Icon, Link as ChakraLink } from '@chakra-ui/react'
 import { AiOutlineLeft } from 'react-icons/ai'
 import Image from 'next/image'
-import logo from '../../public/Logo.png'
+
+import logo from '../../public/images/Logo.png'
 
 interface HeaderProps {
   isHome?: boolean;
 }
 
 export function Header({ isHome }: HeaderProps) {
-  const mL = useBreakpointValue({ base: '147px', lg: '628px', sm: '147px' })
-  const mLOtherPages = useBreakpointValue({ base: '115px', lg: '456px', sm: '115px' })
-  const mR = useBreakpointValue({ base: '147px', lg: '628px', sm: '147px' })
-  console.log('mL', mL)
-  console.log('mLOtherPages', mLOtherPages)
-  console.log('mR', mR)
-
   return (
     <Flex
       as="header"
@@ -46,7 +39,6 @@ export function Header({ isHome }: HeaderProps) {
         mr={{ base: '147px', lg: '628px', sm: '147px' }}
       >
         <Image alt="logo" src={logo}/>
-        {/* <Image alt="logo" src='Logo.png' w={{base: "81px", lg: "184px", sm: "81px"}} h={{lbase: "20px", g: "45.75px", sm: "20px"}} /> */}
       </Center>
 
     </Flex>
