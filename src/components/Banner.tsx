@@ -67,69 +67,50 @@ export function Banner({ isHome, continent }: BannerProps) {
               </Flex>
             </Flex>
 
-            {!isMobile && (<Flex
-              as="div"
-              w="100%"
-              h="100%"
-              direction="column"
-            >
-              <Center
-                mt="86.73px" 
-                mr="146.8px"
+            {!isMobile && (
+              <Flex
+                as="div"
+                w="100%"
+                h="100%"
+                direction="column"
               >
-                <Image 
-                  alt="logo" 
-                  src='/images/Airplane.png' 
-                  w="417.15px" 
-                  h="270.74px" 
-                  transform="rotate(3deg)"
-                />
-              </Center>
-            </Flex>)}
+                <Center
+                  mt="86.73px" 
+                  mr="146.8px"
+                >
+                  <Image 
+                    alt="logo" 
+                    src='/images/Airplane.png' 
+                    w="417.15px" 
+                    h="270.74px" 
+                    transform="rotate(3deg)"
+                  />
+                </Center>
+              </Flex>
+            )}
           </>
         ) : (
-          <>
+          <Flex
+            as="div"
+            w="100%"
+            h="100%"
+            direction="column"
+          >
             <Flex
               as="div"
-              w="100%"
-              h="100%"
-              direction="column"
+              mx={isMobile ? "auto" : "369px"}
+              my={isMobile ? "auto" : "140px"}
             >
-              {
-                isMobile ? (
-                  <Flex
-                    as="div"
-                    mx="auto"
-                    my="auto"
-                  >
-                    <Text
-                      color="gray.100" 
-                      fontWeight="600"
-                      fontSize={{base: "28px", sm: "28px", lg: "48px"}} 
-                      lineHeight={{base: "42px", sm: "42px", lg: "72px"}}
-                    >
-                      {continent?.name}
-                    </Text>
-                  </Flex>
-                ) : (
-                  <Flex
-                    as="div"
-                    mt="369px" 
-                    ml="140px" 
-                  >
-                    <Text
-                      color="gray.100" 
-                      fontWeight="600"
-                      fontSize={{base: "28px", sm: "28px", lg: "48px"}} 
-                      lineHeight={{base: "42px", sm: "42px", lg: "72px"}}
-                    >
-                      {continent?.name}
-                    </Text>
-                  </Flex>
-                )
-              }
+              <Text
+                color="gray.100" 
+                fontWeight="600"
+                fontSize={{base: "28px", sm: "28px", lg: "48px"}} 
+                lineHeight={{base: "42px", sm: "42px", lg: "72px"}}
+              >
+                {continent?.name}
+              </Text>
             </Flex>
-          </>
+          </Flex>
         )
       }
 

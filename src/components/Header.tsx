@@ -21,16 +21,14 @@ export function Header({ isHome }: HeaderProps) {
 
       {!isHome && (
         <Center ml={{base: "16px", lg: "140px", sm: "16px"}}>
-          <Link href="/" passHref>
-            <ChakraLink display="flex" align="center">
-              <Icon 
-                as={AiOutlineLeft} 
-                w={{base: "16px", lg: "32px", sm: "16px"}} 
-                h={{base: "16px", lg: "32px", sm: "16px"}} 
-                color="gray.900" 
-              />
-            </ChakraLink>
-          </Link>
+          <ChakraLink as={Link} href="/" display="flex">
+            <Icon 
+              as={AiOutlineLeft} 
+              w={{base: "16px", lg: "32px", sm: "16px"}} 
+              h={{base: "16px", lg: "32px", sm: "16px"}} 
+              color="gray.900" 
+            />
+          </ChakraLink>
         </Center>
       )}
 

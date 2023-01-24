@@ -1,11 +1,16 @@
 import { GetServerSideProps } from 'next'
 import Head from 'next/head'
 import { Flex } from '@chakra-ui/react'
+import { ParsedUrlQuery } from 'querystring'
 
 import { Header } from '../../components/Header'
 import { Banner } from '../../components/Banner'
 import { Info } from '../../components/Info'
 import { Cities } from '../../components/Cities'
+
+interface IParams extends ParsedUrlQuery {
+  slug: string
+}
 
 type Info = {
   bio: string;
@@ -31,7 +36,7 @@ interface ContinentProps {
 }
 
 export const getServerSideProps: GetServerSideProps = async ({ req, params }) => {
-  const { slug } = params;
+  const { slug } = params as IParams;
 
   let bio = ''
   let countries, languages, cities100 = 0
@@ -149,10 +154,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req, params }) =>
     case 'Ásia': {
       bio = `A Ásia é o maior dos continentes, tanto em área como em população. 
       Abrange um terço das partes sólidas da superfície da Terra e é responsável 
-      por abrigar quase três quintos da população mundial. A Ásia faz fronteira 
-      no lado ocidental com a África e com a Europa, e no lado oriental com o 
-      oceano Pacífico, a Oceania e, em menor proporção, com a América do Norte, 
-      pelo Estreito de Bering.`
+      por abrigar quase três quintos da população mundial.`
       countries = 50
       languages = 2232
       cities100 = 43

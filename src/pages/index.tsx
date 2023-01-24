@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import { Flex, Divider, Text } from '@chakra-ui/react'
+
 import { Header } from '../components/Header'
 import { Banner } from '../components/Banner'
 import { TravelTypes } from '../components/TravelTypes'

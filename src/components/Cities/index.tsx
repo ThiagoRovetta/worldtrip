@@ -32,7 +32,6 @@ export function Cities({ cities }: CitiesProps) {
           Cidades +100
         </Text>
       </Flex>
-
       <Wrap 
         mt={{base: "20px", sm: "20px", lg: "40px"}} 
         spacing={{base: "20px", sm: "20px", lg: "45px"}}
@@ -48,7 +47,6 @@ export function Cities({ cities }: CitiesProps) {
           })
         }
       </Wrap>
-
     </Flex>
   )
 }
